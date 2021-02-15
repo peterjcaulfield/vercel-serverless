@@ -3,6 +3,9 @@
   "functions": {
     "api/index.js": {
       "includeFiles": "_static/test.js"
+    },
+    "index.js": {
+      "includeFiles": "test.txt"
     }
   },
   "redirects": [
