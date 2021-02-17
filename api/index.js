@@ -1,15 +1,23 @@
-const fs = require("fs");
-const path = require("path");
-module.exports = (req, res) => {
-  let files = [];
-  try {
-    files = fs.readdirSync(path.join(__dirname, "_static")).map((file) => file);
-  } catch (e) {
-    console.log(e);
+const protect = require("static-auth");
+const safeCompare = require("safe-compare");
+/*
+ *
+ */
+
+const app = protect(
+  "/admin",
+  (username, password) =>
+    safeCompare(username, "admin") && safeCompare(password, "admin"),
+  {
+    directory: __dirname + "/_static",
+    realm: "vercel-basic-auth.node-static-auth",
+    onAuthFailed: (res) => {
+      res.end("Restricted area, please login (admin:admin).");
+    },
+    serveStaticConfig: {
+      extensions: ["html", "js"],
+    },
   }
-  res.json({
-    body: files,
-    query: req.query,
-    cookies: req.cookies,
-  });
-};
+);
+
+module.exports = app;

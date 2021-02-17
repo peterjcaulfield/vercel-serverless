@@ -1,0 +1,25 @@
+{
+  "name": "vercel-serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-site": "touch test.txt && echo 'hello from test.txt' >> test.txt",
+    "vercel-build": "npm run build-site && cp test.txt api/_static"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterjcaulfield/vercel-serverless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterjcaulfield/vercel-serverless/issues"
+  },
+  "homepage": "https://github.com/peterjcaulfield/vercel-serverless#readme",
+  "dependencies": {
+    "static-auth": "^2.0.0"
+  }
+}
