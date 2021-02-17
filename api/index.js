@@ -14,9 +14,6 @@ const app = protect(
     onAuthFailed: (res) => {
       res.end("Restricted area, please login (admin:admin).");
     },
-    serveStaticConfig: {
-      extensions: ["html", "js"],
-    },
   }
 );
 

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/peterjcaulfield/vercel-serverless#readme",
   "dependencies": {
+    "safe-compare": "^1.1.4",
     "static-auth": "^2.0.0"
   }
 }
